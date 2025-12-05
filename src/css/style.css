@@ -122,7 +122,12 @@ h2 {
 /* section 3  viedo*/
 .viedo {
   background-image: url(../img/album/WhatsApp\ Image\ 2025-12-04\ at\ 3.58.54\ PM.jpeg);
-  background-size: contain;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* 4. Center the image to ensure the most important part is visible */
+  background-position: center;
 }
 /* .image--backgound {
 }
@@ -137,6 +142,7 @@ h2 {
   width: 100%;
   height: auto; /* Maintains aspect ratio */
   max-height: 100vh;
+  opacity: 0.8;
 }
 
 /* message */
@@ -153,6 +159,7 @@ h2 {
 .ain {
   width: 100%;
   object-fit: cover;
+  border-radius: 20px;
 }
 q {
   font-size: 1.5rem;
@@ -173,7 +180,6 @@ audio {
   position: fixed;
   z-index: 100;
   top: 2%;
-  width: 90%;
-  opacity: 0.4;
-  margin-left: 2rem;
+  width: 100%;
+  opacity: 0.5;
 }
