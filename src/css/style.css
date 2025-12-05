@@ -1,0 +1,172 @@
+:root {
+  --primary-color: #fff5d7;
+  --secondary-color: #ffaaab;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+ul {
+  list-style: none;
+  color: #555;
+}
+body {
+  background-color: var(--primary-color);
+  font-family: "Happy Monkey", system-ui;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  font-family: "DM Sans", sans-serif;
+  @media only screen and (max-width: 61.25em) {
+    font-size: 50%;
+  }
+}
+
+/* section 1 */
+section {
+  min-height: 100vh;
+  margin-bottom: 2rem;
+}
+.balloons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.balloons img {
+  max-width: 100%;
+}
+h1,
+h2 {
+  font-size: 2.5rem;
+}
+.tota {
+  color: var(--secondary-color);
+  transition: 0.2s;
+  font-size: 3rem;
+  animation: wordAnimation 1s ease-in-out infinite alternate;
+}
+.cake--img {
+  width: 70rem;
+  transition: 0.2s;
+  animation: cakeAnimation 2s ease-in-out infinite alternate;
+}
+.balloons--img {
+  width: 100%;
+}
+.words {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@keyframes cakeAnimation {
+  from {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes wordAnimation {
+  from {
+    transform: scale(1.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* section 2 */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(1px);
+  transition: all 0.5s;
+}
+.photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 2px;
+}
+.photos img {
+  max-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 30em) {
+  photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 1px;
+  }
+}
+
+/* section 3  viedo*/
+.viedo {
+  background-image: url(../img/album/WhatsApp\ Image\ 2025-12-04\ at\ 3.58.54\ PM.jpeg);
+  background-size: contain;
+}
+/* .image--backgound {
+}
+.image--backgound img {
+  /* filter: grayscale() blur(1.5px);
+  width: 100%; */
+
+.viedo--item {
+  background-color: rgba(0, 0, 0, 0.534);
+}
+.viedo--item video {
+  width: 100%;
+  height: auto; /* Maintains aspect ratio */
+  max-height: 100vh;
+}
+
+/* message */
+.message {
+  text-align: center;
+}
+
+.message-content {
+  background-color: white;
+  margin: 2rem 3rem;
+  padding: 2rem 3rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+q {
+  font-size: 1.5rem;
+  line-height: 30px;
+  font-weight: 600;
+}
+.message--image {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.message--image img {
+  width: 3rem;
+  text-align: end;
+}
+audio {
+  position: fixed;
+  z-index: 100;
+  top: 2%;
+  width: 90%;
+  opacity: 0.4;
+  margin-left: 2rem;
+}
