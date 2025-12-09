@@ -1,3 +1,4 @@
+
 const btn = document.querySelector(".btn-guess");
 const inputDate = document.querySelector("#date");
 const overlay = document.querySelector(".overlay");
@@ -44,3 +45,4 @@ btn.addEventListener("click", function () {
     audio.play();
   }
 });
+console.log('done');
