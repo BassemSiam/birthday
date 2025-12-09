@@ -1,0 +1,22 @@
+{
+  "name": "birthday",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BassemSiam/birthday.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BassemSiam/birthday/issues"
+  },
+  "homepage": "https://github.com/BassemSiam/birthday#readme",
+  "dependencies": {
+    "firebase": "^12.6.0"
+  }
+}
