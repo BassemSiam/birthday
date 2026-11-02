@@ -20,7 +20,9 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
   font-family: "DM Sans", sans-serif;
-  @media only screen and (max-width: 61.25em) {
+}
+@media only screen and (max-width: 61.25em) {
+  html {
     font-size: 50%;
   }
 }
@@ -89,58 +91,126 @@ h2 {
   }
 }
 
-/* section 2 */
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+/* =========================================
+   SECTION 2: PHOTOS CARD SLIDER 
+   ========================================= */
+/* Ensure the photo section takes up full screen height and centers content */
+section {
+  min-height: 100vh;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers vertically */
+  align-items: center;     /* Centers horizontally */
+}
+
+/* Photo Slider Container Centering */
+.photos-slider-container {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  background: #fff;
+}
+
+.photos {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  will-change: transform;
+}
+
+.photos .card {
+  min-width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photos img {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(1px);
-  transition: all 0.5s;
-}
-.photos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  gap: 2px;
-}
-.photos img {
-  max-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  user-select: none;
+  min-height: auto; /* Overrides previous min-height conflict */
 }
 
-@media only screen and (max-width: 30em) {
-  photos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-    gap: 1px;
-  }
+/* Slider Navigation Buttons */
+.slider-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  font-size: 20px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s, transform 0.2s;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* section 3  viedo*/
+.slider-nav-btn:hover {
+  background-color: #ff8889;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.photos-prev-btn {
+  left: 15px;
+}
+
+.photos-next-btn {
+  right: 15px;
+}
+
+/* Dots / Indicators */
+.photos-dots-container {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.photos-dot {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.photos-dot.active {
+  background-color: var(--secondary-color);
+  transform: scale(1.3);
+}
+
+/* =========================================
+   SECTION 3: VIDEO & OTHERS
+   ========================================= */
 .viedo {
   background-image: url(../img/album/WhatsApp\ Image\ 2025-12-04\ at\ 3.58.54\ PM.jpeg);
-
   background-repeat: no-repeat;
   background-size: cover;
-
-  /* 4. Center the image to ensure the most important part is visible */
   background-position: center;
 }
-/* .image--backgound {
-}
-.image--backgound img {
-  /* filter: grayscale() blur(1.5px);
-  width: 100%; */
 
 .viedo--item {
   background-color: rgba(0, 0, 0, 0.534);
 }
 .viedo--item video {
   width: 100%;
-  height: auto; /* Maintains aspect ratio */
+  height: auto;
   max-height: 100vh;
   opacity: 0.8;
 }
@@ -182,4 +252,67 @@ audio {
   top: 2%;
   width: 100%;
   opacity: 0.5;
+}
+
+/* video slideshow */
+.slideshow-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.video-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.video-slide.active {
+  opacity: 1;
+}
+
+.video-slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.controls button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: "Happy Monkey", cursive;
+  cursor: pointer;
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.controls button:hover {
+  background-color: #ff1493;
+}
+
+@media (max-width: 768px) {
+  .slideshow-container {
+    height: 100vh;
+  }
+  .controls button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
 }
